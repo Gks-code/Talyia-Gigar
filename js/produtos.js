@@ -2,76 +2,228 @@
 const produtos = [
     {
         id: 1,
-        nome: "Whisky Johnnie Walker Blue Label",
+        nome: "Whisky Jack Daniel's tradicional",
         descricao: "Blended Scotch Whisky de luxo com sabores complexos e textura aveludada. Perfeito para ocasiões especiais.",
         preco: 1899.90,
-        imagem: "assets/img/1.jpg",
+        imagem: "assets/img/Jack Daniel's.jpg",
         categoria: "whisky",
         destaque: true
     },
     {
         id: 2,
-        nome: "Charuto Cohiba Siglo VI",
+        nome: "Whisky Jack Daniel's honey",
         descricao: "Um dos charutos mais cobiçados do mundo, feito à mão em Cuba com folhas de tabaco selecionadas.",
         preco: 599.90,
-        imagem: "assets/img/Charuto Cohiba Siglo VI.jpg",
-        categoria: "charuto",
+        imagem: "assets/img/Jack Daniel's honey.jpg",
+        categoria: "whisky",
         destaque: true
     },
     {
         id: 3,
-        nome: "Vinho Château Lafite Rothschild 2015",
+        nome: "Whisky Jack Daniel's fire",
         descricao: "Um dos vinhos mais prestigiados de Bordeaux, safra excepcional com aromas de frutas escuras e especiarias.",
         preco: 4999.90,
-        imagem: "assets/img/Vinho Château Lafite Rothschild 2015.jpg",
-        categoria: "vinho",
+        imagem: "assets/img/Jack Daniel's fire.jpg",
+        categoria: "whisky",
         destaque: true
     },
     {
         id: 4,
-        nome: "Conhaque Louis XIII",
+        nome: "Whisky Jack Daniel's Apple",
         descricao: "O ápice da arte do conhaque, envelhecido por décadas em barris de carvalho, com notas de frutas cristalizadas e baunilha.",
         preco: 12999.90,
-        imagem: "assets/img/Conhaque Louis XIII.jpg",
-        categoria: "conhaque",
+        imagem: "assets/img/Jack Daniel's Apple.jpg",
+        categoria: "whisky",
         destaque: true
     },
     {
         id: 5,
-        nome: "Whisky Macallan 18 anos",
+        nome: "Whisky Gentleman jack",
         descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
         preco: 2999.90,
-        imagem: "assets/img/Conhaque Louis XIII.jpg",
+        imagem: "assets/img/Gentleman jack.jpg",
         categoria: "whisky",
         destaque: false
     },
     {
         id: 6,
-        nome: "Vinho Dom Perignon 2012",
-        descricao: "Champagne vintage francês com bolhas refinadas e aromas complexos de frutas brancas e amêndoas.",
-        preco: 1599.90,
-        imagem: "assets/img/Conhaque Louis XIII.jpg",
-        categoria: "vinho",
+        nome: "Red Label",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Red Label.jpg",
+        categoria: "label",
         destaque: false
     },
     {
         id: 7,
-        nome: "Charuto Montecristo No. 2",
-        descricao: "Charuto cubano clássico com formato torpedo, oferecendo sabores ricos de madeira e nozes.",
-        preco: 399.90,
-        imagem: "assets/img/Conhaque Louis XIII.jpg",
-        categoria: "charuto",
+        nome: "Green Label",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Green Label.jpg",
+        categoria: "label",
         destaque: false
     },
     {
         id: 8,
-        nome: "Whisky Jack Daniel's Single Barrel",
-        descricao: "Whisky Tennessee selecionado de barris únicos, com carácter marcante e notas de caramelo.",
-        preco: 499.90,
-        imagem: "assets/img/Conhaque Louis XIII.jpg",
-        categoria: "whisky",
+        nome: "Gold Label",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/gold label.jpg",
+        categoria: "label",
         destaque: false
-    }
+    },
+    {
+        id: 9,
+        nome: "Double Black",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Double Black.jpg",
+        categoria: "label",
+        destaque: false
+    }, {
+        id: 10,
+        nome: "Black Label",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Black Label.jpg",
+        categoria: "label",
+        destaque: false
+    },
+    {
+        id: 11,
+        nome: "Blue Label",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Blue Label.jpg",
+        categoria: "label",
+        destaque: false
+    },
+    {
+        id: 12,
+        nome: "Buchanans deluxe",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Buchanan.jpg",
+        categoria: "#",
+        destaque: false
+    },
+    {
+        id: 13,
+        nome: "Chivas Regal 12 anos",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Chivas Regal.jpg",
+        categoria: "#",
+        destaque: false
+    },
+    {
+        id: 14,
+        nome: "Old Parr",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Old Parr.jpg",
+        categoria: "#",
+        destaque: false
+    },
+    {
+        id: 15,
+        nome: "Macallan 12 anos",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/The Macallan 12.jpg",
+        categoria: "A",
+        destaque: false
+    },
+    {
+        id: 16,
+        nome: "Royal salut",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Royal Salute 21.jpg",
+        categoria: "A",
+        destaque: false
+    },
+    {
+        id: 17,
+        nome: "Grant's triple wood",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Grant's Triple Wood whisky.jpg",
+        categoria: "B",
+        destaque: false
+    },
+    {
+        id: 18,
+        nome: "Ballantine's finest",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Ballantine Finest.jpg",
+        categoria: "B",
+        destaque: false
+    },
+    {
+        id: 19,
+        nome: "The famous grouse",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/The Famous Grouse.jpg",
+        categoria: "B",
+        destaque: false
+    },
+    {
+        id: 20,
+        nome: "Sir Edwards finest",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Sir Edward.jpg",
+        categoria: "B",
+        destaque: false
+    },
+    {
+        id: 21,
+        nome: "Label 5",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Label 5.jpg",
+        categoria: "B",
+        destaque: false
+    },
+    {
+        id: 22,
+        nome: "J&B Rare",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/J&B Rare.jpg",
+        categoria: "B",
+        destaque: false
+    },
+    {
+        id: 23,
+        nome: "Cutty sark",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Cutty Sark.jpg",
+        categoria: "B",
+        destaque: false
+    },
+    {
+        id: 24,
+        nome: "Bullet bourbon frontier whiskey",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Bulleit Bourbon.jpg",
+        categoria: "B",
+        destaque: false
+    },
+    {
+        id: 25,
+        nome: "Woodford reserve bourbon",
+        descricao: "Single malt escocês envelhecido por 18 anos em barris de carvalho, com notas de chocolate e frutas secas.",
+        preco: 2999.90,
+        imagem: "assets/img/Woodford Reserve.jpg",
+        categoria: "B",
+        destaque: false
+    },
 ];
 
 // Elementos do DOM
