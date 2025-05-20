@@ -6,12 +6,6 @@ const subtotalElement = document.getElementById('subtotal');
 const totalElement = document.getElementById('total');
 const finalizarCompraBtn = document.getElementById('finalizar-compra');
 
-// Função para calcular o total do carrinho
-function calcularTotalCarrinho() {
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    return carrinho.reduce((total, item) => total + (item.preco * item.quantidade), 0);
-}
-
 // Função para renderizar os itens do carrinho
 function renderizarCarrinho() {
     const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
@@ -101,38 +95,22 @@ function atualizarTotais() {
     totalElement.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
 }
 
-// Finalizar compra via WhatsApp
+// Finalizar compra
 finalizarCompraBtn.addEventListener('click', () => {
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    
-    if (carrinho.length === 0) {
-        alert('Seu carrinho está vazio!');
-        return;
-    }
-    
-    // Formatar mensagem para WhatsApp
-    let mensagem = "📋 *PEDIDO DO SITE* 📋\n\n";
-    mensagem += "🛒 *Itens do Carrinho:*\n\n";
-    
-    carrinho.forEach((item, index) => {
-        mensagem += `*${index + 1}. ${item.nome.toUpperCase()}*\n`;
-        mensagem += `   - Quantidade: ${item.quantidade}\n`;
-        mensagem += `   - Preço unitário: R$ ${item.preco.toFixed(2).replace('.', ',')}\n`;
-        mensagem += `   - Subtotal: R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}\n\n`;
-    });
-    
+    const carrinho = JSON.parse(localStorage.getItem('carrinho'));
     const total = calcularTotalCarrinho();
-    mensagem += `💰 *VALOR TOTAL: R$ ${total.toFixed(2).replace('.', ',')}*\n\n`;
-    mensagem += "Por favor, confirme este pedido e informe:\n";
-    mensagem += "• Forma de pagamento\n";
-    mensagem += "• Endereço de entrega (se aplicável)\n";
-    mensagem += "• Telefone para contato\n\n";
-    mensagem += "Agradecemos pela preferência! ❤️";
     
-    // Abrir WhatsApp (sem número fixo - usuário escolhe o contato)
-    window.open(`https://wa.me/?text=${encodeURIComponent(mensagem)}`, '_blank');
+    // Criar mensagem para WhatsApp
+    let mensagem = "Olá, gostaria de finalizar minha compra:\n\n";
+    carrinho.forEach(item => {
+        mensagem += `${item.nome} - ${item.quantidade}x - R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}\n`;
+    });
+    mensagem += `\nTotal: R$ ${total.toFixed(2).replace('.', ',')}`;
     
-    // Opcional: Limpar carrinho após envio
+    // Redirecionar para WhatsApp
+    window.open(`https://wa.me/554491689598?text=${encodeURIComponent(mensagem)}`, '_blank');
+    
+    // Limpar carrinho (opcional)
     // localStorage.removeItem('carrinho');
     // renderizarCarrinho();
 });
