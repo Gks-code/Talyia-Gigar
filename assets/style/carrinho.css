@@ -19,14 +19,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 5%;
+    padding: 1.5rem 5%;
     background-color: var(--primary-color);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     color: #ffffff;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     background-color: #000000;
 }
 
@@ -396,103 +396,5 @@ footer {
     
     .carrinho-container {
         margin-top: 80px;
-    }
-}
-
-/* Ajustes específicos para mobile - ADD ao final do seu CSS */
-@media (max-width: 768px) {
-    /* Melhora a área de toque */
-    .btn-comprar, .item-controle button {
-        min-width: 44px;
-        min-height: 44px;
-        font-size: 16px;
-    }
-    
-    /* Layout otimizado para mobile */
-    .item-carrinho {
-        grid-template-columns: 80px 1fr;
-        grid-template-areas:
-            "imagem info"
-            "controle controle";
-        gap: 10px;
-        padding: 15px 10px;
-    }
-    
-    .item-imagem { 
-        grid-area: imagem;
-        align-self: center;
-    }
-    
-    .item-info { 
-        grid-area: info;
-        padding-right: 10px;
-    }
-    
-    .item-controle { 
-        grid-area: controle;
-        justify-self: start;
-        margin-top: 10px;
-    }
-    
-    /* Previne o zoom indesejado */
-    input, select, textarea {
-        font-size: 16px;
-    }
-}
-
-/* Adicione ao seu CSS */
-.btn-comprar.added-to-cart {
-    background-color: #4CAF50 !important;
-    transform: scale(0.95);
-}
-
-/* Melhora a resposta ao toque */
-button, [data-id] {
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-}
-
-/* Estilos específicos para mobile */
-@media (max-width: 768px) {
-    .item-carrinho {
-        grid-template-columns: 80px 1fr;
-        grid-template-areas: 
-            "imagem info"
-            "controle controle";
-        padding: 15px 10px;
-    }
-    
-    .item-imagem {
-        grid-area: imagem;
-        align-self: center;
-    }
-    
-    .item-info {
-        grid-area: info;
-        padding-right: 10px;
-    }
-    
-    .item-controle {
-        grid-area: controle;
-        justify-self: start;
-        margin-top: 10px;
-    }
-    
-    /* Melhoria para toques */
-    .btn-comprar, .item-controle button, .remover-item {
-        min-height: 44px;
-        min-width: 44px;
-        -webkit-tap-highlight-color: transparent;
-    }
-    
-    .btn-comprar.added-feedback {
-        background-color: #4CAF50 !important;
-        transform: scale(0.95);
-        transition: all 0.3s;
-    }
-    
-    /* Previne zoom em inputs */
-    input, select, textarea {
-        font-size: 16px;
     }
 }

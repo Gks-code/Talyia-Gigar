@@ -75,7 +75,7 @@ body {
 /* Banner */
 .banner {
     height: 80vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/teste\ 1\ logo.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/1\ logo.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
