@@ -6,6 +6,12 @@ const subtotalElement = document.getElementById('subtotal');
 const totalElement = document.getElementById('total');
 const finalizarCompraBtn = document.getElementById('finalizar-compra');
 
+// Função para calcular o total do carrinho
+function calcularTotalCarrinho() {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    return carrinho.reduce((total, item) => total + (item.preco * item.quantidade), 0);
+}
+
 // Função para renderizar os itens do carrinho
 function renderizarCarrinho() {
     const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
@@ -41,12 +47,6 @@ function renderizarCarrinho() {
             </div>
         </div>
     `).join('');
-
-    // Função para calcular o total do carrinho
-function calcularTotalCarrinho() {
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    return carrinho.reduce((total, item) => total + (item.preco * item.quantidade), 0);
-}
 
     // Adicionar eventos
     document.querySelectorAll('.diminuir').forEach(btn => {
@@ -112,27 +112,27 @@ finalizarCompraBtn.addEventListener('click', () => {
     
     // Formatar mensagem para WhatsApp
     let mensagem = "🛒 *PEDIDO DO SITE* 🛒\n\n";
-    mensagem += "📋 *Itens do Pedido:*\n\n";
+    mensagem += "📋 *Detalhes do Pedido:*\n\n";
     
     carrinho.forEach((item, index) => {
-        mensagem += `*${index + 1}. ${item.nome}*\n`;
-        mensagem += `   - Quantidade: ${item.quantidade}\n`;
-        mensagem += `   - Preço unitário: R$ ${item.preco.toFixed(2).replace('.', ',')}\n`;
-        mensagem += `   - Subtotal: R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}\n\n`;
+        mensagem += `▶ *${item.nome}*\n`;
+        mensagem += `   ▪ Quantidade: ${item.quantidade}\n`;
+        mensagem += `   ▪ Preço unitário: R$ ${item.preco.toFixed(2).replace('.', ',')}\n`;
+        mensagem += `   ▪ Subtotal: R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}\n\n`;
     });
     
     const total = calcularTotalCarrinho();
-    mensagem += `💰 *TOTAL DO PEDIDO: R$ ${total.toFixed(2).replace('.', ',')}*\n\n`;
-    mensagem += "Por favor, confirme o pedido e informe:\n";
-    mensagem += "- Forma de pagamento\n";
-    mensagem += "- Endereço para entrega (se necessário)\n";
-    mensagem += "- Telefone para contato\n\n";
-    mensagem += "Agradecemos pela preferência! ❤️";
+    mensagem += `💰 *TOTAL A PAGAR: R$ ${total.toFixed(2).replace('.', ',')}*\n\n`;
+    mensagem += "📝 *Informações Adicionais:*\n";
+    mensagem += "• Forma de pagamento preferida\n";
+    mensagem += "• Endereço completo para entrega\n";
+    mensagem += "• Telefone para contato\n\n";
+    mensagem += "Agradecemos sua compra! ❤️";
     
-    // Usando o número correto que você forneceu
+    // Número do WhatsApp fornecido por você
     window.open(`https://wa.me/5545988127886?text=${encodeURIComponent(mensagem)}`, '_blank');
     
-    // Opcional: Limpar carrinho após envio
+    // Opcional: descomente para limpar o carrinho após enviar
     // localStorage.removeItem('carrinho');
     // renderizarCarrinho();
 });
