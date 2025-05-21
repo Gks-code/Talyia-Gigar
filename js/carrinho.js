@@ -42,6 +42,12 @@ function renderizarCarrinho() {
         </div>
     `).join('');
 
+    // Função para calcular o total do carrinho
+function calcularTotalCarrinho() {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    return carrinho.reduce((total, item) => total + (item.preco * item.quantidade), 0);
+}
+
     // Adicionar eventos
     document.querySelectorAll('.diminuir').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -95,22 +101,38 @@ function atualizarTotais() {
     totalElement.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
 }
 
-// Finalizar compra
+// Finalizar compra via WhatsApp
 finalizarCompraBtn.addEventListener('click', () => {
-    const carrinho = JSON.parse(localStorage.getItem('carrinho'));
-    const total = calcularTotalCarrinho();
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
     
-    // Criar mensagem para WhatsApp
-    let mensagem = "Olá, gostaria de finalizar minha compra:\n\n";
-    carrinho.forEach(item => {
-        mensagem += `${item.nome} - ${item.quantidade}x - R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}\n`;
+    if (carrinho.length === 0) {
+        alert('Seu carrinho está vazio!');
+        return;
+    }
+    
+    // Formatar mensagem para WhatsApp
+    let mensagem = "🛒 *PEDIDO DO SITE* 🛒\n\n";
+    mensagem += "📋 *Itens do Pedido:*\n\n";
+    
+    carrinho.forEach((item, index) => {
+        mensagem += `*${index + 1}. ${item.nome}*\n`;
+        mensagem += `   - Quantidade: ${item.quantidade}\n`;
+        mensagem += `   - Preço unitário: R$ ${item.preco.toFixed(2).replace('.', ',')}\n`;
+        mensagem += `   - Subtotal: R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}\n\n`;
     });
-    mensagem += `\nTotal: R$ ${total.toFixed(2).replace('.', ',')}`;
     
-    // Redirecionar para WhatsApp
-    window.open(`https://wa.me/554491689598?text=${encodeURIComponent(mensagem)}`, '_blank');
+    const total = calcularTotalCarrinho();
+    mensagem += `💰 *TOTAL DO PEDIDO: R$ ${total.toFixed(2).replace('.', ',')}*\n\n`;
+    mensagem += "Por favor, confirme o pedido e informe:\n";
+    mensagem += "- Forma de pagamento\n";
+    mensagem += "- Endereço para entrega (se necessário)\n";
+    mensagem += "- Telefone para contato\n\n";
+    mensagem += "Agradecemos pela preferência! ❤️";
     
-    // Limpar carrinho (opcional)
+    // Usando o número correto que você forneceu
+    window.open(`https://wa.me/5545988127886?text=${encodeURIComponent(mensagem)}`, '_blank');
+    
+    // Opcional: Limpar carrinho após envio
     // localStorage.removeItem('carrinho');
     // renderizarCarrinho();
 });
